@@ -8,7 +8,7 @@ exports.getRepos = async (req, res) => {
 
         const totalRepos = await Repo.countDocuments();
         const totalPages = Math.ceil(totalRepos / limit);
-        const repos = await Repo.find().select('-image -demo').skip(offset).limit(limit);
+        const repos = await Repo.find().skip(offset).limit(limit);
 
         return res.status(200).json({
             totalRepos,
